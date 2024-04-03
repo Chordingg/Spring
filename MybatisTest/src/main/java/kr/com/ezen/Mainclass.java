@@ -31,7 +31,7 @@ public class Mainclass {
 			MemberVO vo = new MemberVO();
 			
 			vo.setId(1);
-			vo.setName("장합");
+			vo.setName("조조");
 			vo.setPhone("010-3333-9999");
 			vo.setAddress("서울시 도봉구");
 			
