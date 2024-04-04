@@ -5,7 +5,7 @@
 <mapper namespace="kr.com.ezen.MapperInterface">
 
 	<!-- MapperInterface에 있던 함수명과 동일하게 id값 바꿔준다. -->
-
+	<!-- #을 하면 알아서 값을 가져와서 넣어줌 -->
 	<insert id="insertMember">
 		insert into member (id,name,phone,address)
 		values
@@ -23,5 +23,14 @@
 	<delete id="deleteMember">
 		delete from member where id = #{id}
 	</delete>
+
+		   <!--값을 불러와서 보여주기 위해서는 resultType이 있어야한다.  -->      <!--생략가능-->
+	<select id="selectMemberOne" resultType="kr.com.ezen.MemberVO" parameterType="int">
+		SELECT * FROM member WHERE ID = #{id}
+	</select>
+	
+	<select id="selectMemberList" resultType="kr.com.ezen.MemberVO" >
+		SELECT * FROM member order by id desc
+	</select>
 
 </mapper>

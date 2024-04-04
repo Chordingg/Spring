@@ -10,4 +10,6 @@
     <fullyQualifiedTypeName name="lombok.Getter"/>
     <fullyQualifiedTypeName name="lombok.ToString"/>
     <fullyQualifiedTypeName name="kr.com.ezen.MapperInterface"/>
+    <fullyQualifiedTypeName name="kr.com.ezen.MemberVO"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
 </qualifiedTypeNameHistroy>
