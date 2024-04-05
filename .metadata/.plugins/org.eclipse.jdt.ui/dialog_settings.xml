@@ -32,6 +32,7 @@
 		<item key="updateTextualMatches" value="false"/>
 		<item key="updateQualifiedNames" value="false"/>
 		<item key="patterns" value="*"/>
+		<item key="renameSubpackages" value="false"/>
 	</section>
 	<section name="ProblemSeveritiesConfigurationBlock">
 		<item key="expanded0" value="true"/>
@@ -48,5 +49,11 @@
 		<item key="expanded0" value="true"/>
 		<item key="expanded1" value="false"/>
 		<item key="expanded2" value="false"/>
+	</section>
+	<section name="BuildPathsPropertyPage">
+		<item key="pageIndex" value="2"/>
+	</section>
+	<section name="ClasspathContainerSelectionPage">
+		<item key="index" value="3"/>
 	</section>
 </section>

@@ -83,4 +83,5 @@ public class MapperTests {
 		  memberMapper.selectAllList()
 		  .forEach(vo -> log.info(vo));
 	  }
+	  
 }
