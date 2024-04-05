@@ -27,7 +27,7 @@ public class MybatisTest {
 		try {
 			SqlSession session = sessionFactory.openSession();
 			log.info("session : " + session);
-		} catch (Exception e) {
+		} catch (Exception e) {	
 			e.printStackTrace();
 		}
 	}
