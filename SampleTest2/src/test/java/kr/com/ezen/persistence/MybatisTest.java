@@ -32,7 +32,7 @@ public class MybatisTest {
 		}
 	}
 
-	@Test
+	@Test 
 	public void testGetTime() {
 		try {
 			log.info("----------------------------");
