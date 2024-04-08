@@ -56,4 +56,7 @@
 	<section name="ClasspathContainerSelectionPage">
 		<item key="index" value="3"/>
 	</section>
+	<section name="WorkingSetModelAwareSelectionDialog">
+		<item key="ShowVisibleOnly" value="true"/>
+	</section>
 </section>
