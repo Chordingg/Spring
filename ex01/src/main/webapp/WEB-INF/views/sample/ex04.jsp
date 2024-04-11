@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+SampleDTO :  ${sampleDTO}<br>
 SampleDTO :  ${list.name}<br>
 SampleDTO :  ${list.age}<br>
 page : ${page}
