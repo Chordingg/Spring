@@ -16,12 +16,15 @@
 				<div class="panel panel-default">
 					<div class="panel-heading">
 						Board List Page
-						<button id="regBtn" type="button" class="btn btn-xs btn-primary pull-right">Register New Board</button>
+						<button id="regBtn" type="button"
+							class="btn btn-xs btn-primary pull-right">Register New
+							Board</button>
 					</div>
 					<!-- /.panel-heading -->
 					<div class="panel-body">
 						<table width="100%"
-							class="table table-striped table-bordered table-hover" id="dataTables-example">
+							class="table table-striped table-bordered table-hover"
+							id="dataTables-example">
 							<thead>
 								<tr>
 									<th>#번호</th>
@@ -35,8 +38,8 @@
 								<c:forEach items="${list}" var="board">
 									<tr class="odd gradeX">
 										<td>${board.bno }</td>
-										<td>${board.title }</td>
-										<td>${board.content }</td>
+										<td><a href='/board/get?bno=${board.bno}' />${board.title}</td>
+										<td>${board.writer}</td>
 										<td><fmt:formatDate value="${board.regdate}" /></td>
 										<td><fmt:formatDate value="${board.updateDate}" /></td>
 									</tr>
@@ -61,7 +64,8 @@
 
 									<!-- Modal footer -->
 									<div class="modal-footer">
-										<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+										<button type="button" class="btn btn-danger"
+											data-dismiss="modal">Close</button>
 									</div>
 								</div>
 							</div>
@@ -81,33 +85,39 @@
 <!-- /#wrapper -->
 
 <script>
-	$(document).ready(function() {
+	$(document).ready(
+			function() {
 
 				// EL표기법
 				var result = '${result}'
+				
+				checkModal(result);
 
 				// 보안적인 면에서 이것을 추천
 				/* var result2 = "<c:out value = '${result}'/>"; */
 
-				console.log(result)
+				// 페이지 상태 초기화
+				history.replaceState({}, null, null);
+				
+				console.log(parseInt(result));
 
-				checkModal(result)
-
-				// modal 창
+				// 모달창 표시 로직
 				function checkModal(result) {
-					if (result == '') {
-						return;
+					 if (result === "" || history.state) {
+				            return;
 					}
+					 
 					if (parseInt(result) > 0) {
 						$(".modal-body").html("게시글 " + parseInt(result) + " 번이 등록되었습니다.");
 					}
+					
 					$("#myModal").modal("show");
 				}
 
-				// register 호출
-				$("#regBtn").on("click", function(){
+				// 'register' 페이지로 이동
+				$("#regBtn").on("click", function() {
 					self.location = "/board/register";
-					}); 
+				});
 
 				/* document.getElementById("regBtn").addEventListener("click",
 						function() {
