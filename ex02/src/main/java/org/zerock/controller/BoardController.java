@@ -24,11 +24,17 @@ public class BoardController {
 
 	private final BoardService boardService;
 	
+	
 	@GetMapping("/list")
 	public void list(Model model){	// views/board/list.jsp
 		log.info("list...................");
 		
 		model.addAttribute("list", boardService.getList());
+	}
+	
+	@GetMapping("/register")
+	public void register() {
+		
 	}
 	
 	@PostMapping("/register")
