@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>	
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@include file="../includes/header.jsp"%>
 
 <div id="wrapper">
@@ -16,15 +18,12 @@
 				<div class="panel panel-default">
 					<div class="panel-heading">
 						Board List Page
-						<button id="regBtn" type="button"
-							class="btn btn-xs btn-primary pull-right">Register New
-							Board</button>
+						<button id="regBtn" type="button" class="btn btn-xs btn-primary pull-right">
+						Register New Board</button>
 					</div>
 					<!-- /.panel-heading -->
-					<div class="panel-body">
-						<table width="100%"
-							class="table table-striped table-bordered table-hover"
-							id="dataTables-example">
+					<div class="panel-body">               
+						<table class="table table-striped table-bordered table-hover">
 							<thead>
 								<tr>
 									<th>#번호</th>
@@ -33,12 +32,13 @@
 									<th>작성일</th>
 									<th>수정일</th>
 								</tr>
+								
 							</thead>
 							<tbody>
 								<c:forEach items="${list}" var="board">
 									<tr class="odd gradeX">
 										<td>${board.bno }</td>
-										<td><a href='/board/get?bno=${board.bno}' />${board.title}</td>
+										<td><a href='/board/get?bno=${board.bno}'>${board.title}</a></td>
 										<td>${board.writer}</td>
 										<td><fmt:formatDate value="${board.regdate}" /></td>
 										<td><fmt:formatDate value="${board.updateDate}" /></td>
@@ -64,8 +64,7 @@
 
 									<!-- Modal footer -->
 									<div class="modal-footer">
-										<button type="button" class="btn btn-danger"
-											data-dismiss="modal">Close</button>
+										<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
 									</div>
 								</div>
 							</div>
@@ -85,8 +84,7 @@
 <!-- /#wrapper -->
 
 <script>
-	$(document).ready(
-			function() {
+	$(document).ready(function(){
 
 				// EL표기법
 				var result = '${result}'
@@ -109,11 +107,16 @@
 					 
 					if (parseInt(result) > 0) {
 						$(".modal-body").html("게시글 " + parseInt(result) + " 번이 등록되었습니다.");
+					}else if(result === "modify"){
+						$(".modal-body").html("게시글 수정되었습니다.");
+					}else if(result === "delete"){
+						$(".modal-body").html("게시글 삭제되었습니다..");
 					}
 					
 					$("#myModal").modal("show");
 				}
 
+				
 				// 'register' 페이지로 이동
 				$("#regBtn").on("click", function() {
 					self.location = "/board/register";

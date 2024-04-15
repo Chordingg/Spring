@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.zerock.domain.BoardVO;
+import org.zerock.domain.Criteria;
 import org.zerock.service.BoardService;
 
 import lombok.RequiredArgsConstructor;
@@ -26,10 +27,10 @@ public class BoardController {
 	
 	
 	@GetMapping("/list")
-	public void list(Model model){	// views/board/list.jsp
-		log.info("list...................");
+	public void list(Criteria cri, Model model){	// views/board/list.jsp
+		log.info("list..................." + cri);
 		
-		model.addAttribute("list", boardService.getList());
+		model.addAttribute("list", boardService.getList(cri));
 	}
 	
 	@GetMapping("/register")
@@ -59,7 +60,7 @@ public class BoardController {
 		log.info("modify................" + board);
 		
 		if(boardService.modify(board)) {	// board값 입력 받아서 수정 성공하면 true, 실패하면 false
-			rttr.addFlashAttribute("result", "success");
+			rttr.addFlashAttribute("result", "modify");
 		}
 		
 		return "redirect:/board/list";  // views/board/list.jsp
@@ -70,7 +71,7 @@ public class BoardController {
 		log.info("remove......................." + bno);
 		
 		if(boardService.remove(bno)) {
-			rttr.addFlashAttribute("result", "success");
+			rttr.addFlashAttribute("result", "delete");
 		}
 		
 		return "redirect:/board/list"; 	// views/board/list.jsp
