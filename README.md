@@ -1165,12 +1165,12 @@ public class Test {
 ### 1) 마리아DB 다운로드 및 설치
 https://mariadb.org/download/?t=mariadb&p=mariadb&r=11.0.3&os=windows&cpu=x86_64&pkg=msi&m=blendbyte
 
-![마리아DB 다운로드](./capture/spring030102.png)
+![spring030102](https://github.com/Chordingg/Spring/assets/157094467/e2290925-da44-41b4-aa6f-b2d67e34b90e)
 
 ### 2) HeidiSQL 다운로드 및 설치
 https://www.heidisql.com/download.php
 
-![Test 클래스 작성](./capture/spring030101.png)
+![spring030101](https://github.com/Chordingg/Spring/assets/157094467/29c3ee69-9920-4640-a772-d11a72900505)
 
 <br>
 
