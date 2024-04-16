@@ -56,7 +56,8 @@
 
 ## 01-04. Spring Framework 주요 모듈 구성
 
-![Spring Framework 주요 모듈 구성](./springframework001.png)
+![springframework001](https://github.com/Chordingg/Spring/assets/157094467/a7ed0995-c83d-4b45-92dd-8ad979ce80b5)
+
 
 ### 1) Data Access/Integration(데이터 접근 및 통합)
 
@@ -110,7 +111,8 @@ https://www.azul.com/downloads/?package=jdk#zulu
 위 사이트에 접속하여 Open JDK 17 버전의 Windows
 x86 64-bit용으로 다운로드 받은 후 설치합니다.
 
-![OpenJDK 17 설치](./capture/setting00_01.png)
+![setting00_01](https://github.com/Chordingg/Spring/assets/157094467/ba7c170c-640d-4cfd-b548-10bb22652bf0)
+
 
 
 
@@ -120,27 +122,32 @@ https://www.jetbrains.com/ko-kr/idea/download/?section=windows
 
 위 사이트에 접속하여 인텔리 제이를 다운로드 받아 설치합니다.
 
-![인텔리제이 설치](./capture/setting00_02.png)
+![setting00_02](https://github.com/Chordingg/Spring/assets/157094467/9772f75a-48cf-486f-9b65-327b401bd19e)
+
 
 
 ### 3) 인텔리제이 프로젝트 생성
 
 #### 3-1) 새로운 프로젝트 생성
 
-![인텔리제이 새로운 프로젝트 생성](./capture/setting01.png)
+![setting01](https://github.com/Chordingg/Spring/assets/157094467/00ad1c82-e412-431f-9e7e-a4ae05c19ff1)
+
 
 
 #### 3-2) 새로운 프로젝트 설정
 
-![인텔리제이 새로운 프로젝트 생성 및 설정](./capture/setting02.png)
+![setting02](https://github.com/Chordingg/Spring/assets/157094467/6f3f99ee-353a-46ac-bc14-c2f114f6fa73)
+
 
 
 #### 3-3) 새로운 프로젝트 라이브러리 로딩 설정
 
-![인텔리제이 새로운 프로젝트 생성](./capture/setting03.png)
+![setting03](https://github.com/Chordingg/Spring/assets/157094467/ebe9ce0f-1a3d-4771-ba6c-9e24555e6637)
 
 
-![인텔리제이 새로운 프로젝트 설정](./capture/setting04.png)
+![setting04](https://github.com/Chordingg/Spring/assets/157094467/b6c62cab-d834-46a1-8d4c-e5bc0f2f75e9)
+
+
 
 #### 3-4) D:\kim\springStudy\study1\pom.xml 기본 설정
 
@@ -229,41 +236,41 @@ https://www.jetbrains.com/ko-kr/idea/download/?section=windows
 
 #### 3-5) 톰캣 서버 다운로드
 
-![인텔리제이 새로운 프로젝트 설정](./capture/setting05.png)
+![setting05](https://github.com/Chordingg/Spring/assets/157094467/cdb50647-990c-4611-bc36-52bf1b6521db)
 
-![인텔리제이 새로운 프로젝트 설정](./capture/setting06.png)
+![setting06](https://github.com/Chordingg/Spring/assets/157094467/562384ff-6edf-4ca0-ab01-7f9220f4e2f4)
 
-![인텔리제이 새로운 프로젝트 설정](./capture/setting07.png)
+![setting07](https://github.com/Chordingg/Spring/assets/157094467/dae2facf-5fa2-4dc0-bda8-bc241905acd4)
 
 
 
 #### 3-5) 톰캣 서버 설정 및 실행
 
-![인텔리제이 새로운 프로젝트 설정](./capture/setting08.png)
+![setting08](https://github.com/Chordingg/Spring/assets/157094467/d1d221aa-45fe-4dc3-a019-cd10617b8546)
 
-![인텔리제이 새로운 프로젝트 설정](./capture/setting08_1.png)
+![setting08_1](https://github.com/Chordingg/Spring/assets/157094467/bf2604f0-d9cb-4eb8-812d-75e21ba9190e)
 
-![인텔리제이 새로운 프로젝트 설정](./capture/setting08_2.png)
+![setting08_2](https://github.com/Chordingg/Spring/assets/157094467/937e3078-884a-42ee-bee3-be971aadc58a)
 
-![인텔리제이 새로운 프로젝트 설정](./capture/setting08_3.png)
+![setting08_3](https://github.com/Chordingg/Spring/assets/157094467/2d9b5dc9-2e34-4c55-b923-aade21747465)
 
-![인텔리제이 새로운 프로젝트 설정](./capture/setting08_4.png)
+![setting08_4](https://github.com/Chordingg/Spring/assets/157094467/bf188865-dda5-46f4-9c01-75a11677fe0a)
 
-![인텔리제이 새로운 프로젝트 설정](./capture/setting08_5.png)
+![setting08_5](https://github.com/Chordingg/Spring/assets/157094467/33c5851e-0333-4272-b7f6-701f340bc1ce)
 
-![인텔리제이 새로운 프로젝트 설정](./capture/setting08_6.png)
+![setting08_6](https://github.com/Chordingg/Spring/assets/157094467/069eb288-9615-471f-80da-7ce954a74401)
 
-![인텔리제이 새로운 프로젝트 설정](./capture/setting08_7.png)
+![setting08_7](https://github.com/Chordingg/Spring/assets/157094467/6708efd6-af57-42da-9d3b-875c9b0fb313)
 
-![인텔리제이 새로운 프로젝트 설정](./capture/setting08_8.png)
+![setting08_8](https://github.com/Chordingg/Spring/assets/157094467/3346696e-29ea-457d-a0df-50a31c54b902)
 
-![인텔리제이 새로운 프로젝트 설정](./capture/setting08_9.png)
+![setting08_9](https://github.com/Chordingg/Spring/assets/157094467/b74bc351-c041-489c-9e7c-c00158cc62e2)
 
-![인텔리제이 새로운 프로젝트 설정](./capture/setting08_10.png)
+![setting08_10](https://github.com/Chordingg/Spring/assets/157094467/0475f0b5-1f91-458d-ac33-5828bd1a37e1)
 
-![인텔리제이 새로운 프로젝트 설정](./capture/setting08_11.png)
+![setting08_11](https://github.com/Chordingg/Spring/assets/157094467/40e86a67-9188-4e18-b014-52fb4499760f)
 
-![인텔리제이 새로운 프로젝트 설정](./capture/setting08_12.png)
+![setting08_12](https://github.com/Chordingg/Spring/assets/157094467/76c6b902-deb5-4dcb-b136-d866e502b1b4)
 
 
 <br><br>
