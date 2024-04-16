@@ -272,8 +272,7 @@ https://www.jetbrains.com/ko-kr/idea/download/?section=windows
 
 ![setting08_12](https://github.com/Chordingg/Spring/assets/157094467/76c6b902-deb5-4dcb-b136-d866e502b1b4)
 
-
-<br><br>
+<br>
 
 # 02. Spring Framework 설정
 
@@ -713,9 +712,9 @@ D:\kim\springStudy\study2\src\main\webapp\WEB-INF\applicationContext.xml
 
 - D:\kim\springStudy\study2\src\main\webapp\WEB-INF 디렉토리에서 마우스 오른쪽 버튼 을 누르고 나오는 메뉴에서 [New]-[File] 을 선택하고, 입력 란에 applicationContext.xml을 입력하고, Enter를 칩니다.
 
-![applicationContext.xml 파일 추가](./capture/setting09.png)
+![setting09](https://github.com/Chordingg/Spring/assets/157094467/4d63be29-8f16-464b-a18b-ad260b78e7e9)
 
-![applicationContext.xml 파일 추가](./capture/setting09_1.png)
+![setting09_1](https://github.com/Chordingg/Spring/assets/157094467/aabefc94-ec13-46fe-bc7a-26fd42bfaa71)
 
 
 <br>
@@ -784,9 +783,9 @@ D:\kim\springStudy\study2\src\main\webapp\WEB-INF\applicationContext.xml
 
 D:\kim\springStudy\study2\src\main\resources 디렉토리에서 마우스 오른쪽 버튼 을 누르고 나오는 메뉴에서 [New]-[File] 을 선택하고, 입력 란에 mybatis-config.xml을 입력하고, Enter를 칩니다.
 
-![mybatis-config.xml 파일 추가](./capture/setting09_2.png)
+![setting09_2](https://github.com/Chordingg/Spring/assets/157094467/894ab123-8fe7-4224-b784-4649c1ffed56)
 
-![mybatis-config.xml 파일 생성](./capture/setting09_3.png)
+![setting09_3](https://github.com/Chordingg/Spring/assets/157094467/93facf2c-5714-4050-a974-060d00d4f133)
 
 
 <br>
@@ -812,15 +811,16 @@ D:\kim\springStudy\study2\src\main\resources 디렉토리에서 마우스 오른
 
 - D:\kim\springStudy\study2\src\main\resources 디렉토리에서 마우스 오른쪽 버튼 을 누르고 나오는 메뉴에서 [New]-[Directory] 를 선택하고, 입력 란에 mappers을 입력하고, Enter를 칩니다.
 
-![mappers 디렉토리 생성](./capture/setting09_4.png)
+![setting09_4](https://github.com/Chordingg/Spring/assets/157094467/1b2660a5-9a60-45f4-9c33-1f0e835db3a1)
 
-![mappers 디렉토리 생성](./capture/setting09_5.png)
+![setting09_5](https://github.com/Chordingg/Spring/assets/157094467/c84f6ade-293c-47e1-87d7-91270ea14030)
+
 
 - D:\kim\springStudy\study2\src\main\resources\mappers 디렉토리에서 마우스 오른쪽 버튼 을 누르고 나오는 메뉴에서 [New]-[File] 을 선택하고, 입력 란에 testMapper.xml을 입력하고, Enter를 칩니다.
 
-![testMapper.xml 파일 생성](./capture/setting09_51.png)
+![setting09_51](https://github.com/Chordingg/Spring/assets/157094467/43de79db-c50f-4f75-a359-5e28d8aa8b79)
 
-![testMapper.xml 파일 생성](./capture/setting09_6.png)
+![setting09_6](https://github.com/Chordingg/Spring/assets/157094467/bd5d9296-3860-4656-b71f-f7b1799d710f)
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -842,9 +842,9 @@ D:\kim\springStudy\study2\src\main\resources 디렉토리에서 마우스 오른
 
 - D:\kim\springStudy\study2\src\main\webapp\WEB-INF 디렉토리에서 마우스 오른쪽 버튼 을 누르고 나오는 메뉴에서 [New]-[File] 를 선택하고, 입력 란에 dispatcher-servlet.xml을 입력하고, Enter를 칩니다.
 
-![dispatcher-servlet.xml 파일 생성](./capture/setting10.png)
+![setting10](https://github.com/Chordingg/Spring/assets/157094467/18ad6e8b-1ead-47c1-9836-a24a5d040179)
 
-![dispatcher-servlet.xml 파일 생성](./capture/setting10_1.png)
+![setting10_1](https://github.com/Chordingg/Spring/assets/157094467/abddbfb4-44d2-4122-af16-fa3a5f66b795)
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -937,8 +937,8 @@ D:\kim\springStudy\study2\src\main\resources 디렉토리에서 마우스 오른
 
 - 위와 같이 webapp 디렉토리 안에 data 디렉토리를 생성합니다.
 
+![setting10_2](https://github.com/Chordingg/Spring/assets/157094467/c4092e0d-cb78-4eae-942a-78058ec96b6d)
 
-![dispatcher-servlet.xml 파일 생성](./capture/setting10_2.png)
 
 
 <br><br>
@@ -949,9 +949,9 @@ D:\kim\springStudy\study2\src\main\resources 디렉토리에서 마우스 오른
 
 - D:\kim\springStudy\study2\src\main\resources 디렉토리에서 마우스 오른쪽 버튼을 누르고 나오는 메뉴에서 [New]-[File] 를 선택하고, 입력 란에 log4j.xml을 입력하고, Enter를 칩니다.
 
-![log4j.xml 작성](./capture/setting11.png)
+![setting11](https://github.com/Chordingg/Spring/assets/157094467/da0ae8b6-0be6-4037-9c17-9c2af3f92b89)
 
-![log4j.xml 작성](./capture/setting11_1.png)
+![setting11_1](https://github.com/Chordingg/Spring/assets/157094467/48b6be3a-c95e-40ec-a5a3-5b290238eddb)
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -1025,7 +1025,7 @@ D:\kim\springStudy\study2\src\main\resources 디렉토리에서 마우스 오른
 
 - D:\kim\springStudy\study2\src\main\java 디렉토리에서 마우스 오른쪽 버튼을 누르고 나오는 메뉴에서 [New]-[Package] 를 선택하여 아래 그림과 같이 log4j.xml에서 지정한 패키지를 생성합니다.
 
-![관련 패키지 작성](./capture/setting11_2.png)
+![setting11_2](https://github.com/Chordingg/Spring/assets/157094467/76c65d3c-d0ac-4615-a56d-573f530e234b)
 
 <br>
 
@@ -1033,9 +1033,9 @@ D:\kim\springStudy\study2\src\main\resources 디렉토리에서 마우스 오른
 
 - D:\kim\springStudy\study2\src\main\resources 디렉토리에서 마우스 오른쪽 버튼을 누르고 나오는 메뉴에서 [New]-[File] 를 선택하고, 입력 란에 logback.xml을 입력하고, Enter를 칩니다.
 
-![logback.xml 작성](./capture/setting12.png)
+![setting12](https://github.com/Chordingg/Spring/assets/157094467/e205ea6f-926c-426c-9c6e-caab4e8bed7e)
 
-![logback.xml 작성](./capture/setting12_1.png)
+![setting12_1](https://github.com/Chordingg/Spring/assets/157094467/4c09ef4a-9092-4fa8-9079-a1c676b265d3)
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -1088,9 +1088,9 @@ D:\kim\springStudy\study2\src\main\resources 디렉토리에서 마우스 오른
 
 - D:\kim\springStudy\study2\src\main\resources 디렉토리에서 마우스 오른쪽 버튼을 누르고 나오는 메뉴에서 [New]-[File] 를 선택하고, 입력 란에 log4jdbc.log4j2.properties를 입력하고, Enter를 칩니다.
 
-![log4jdbc.log4j2.properties 작성](./capture/setting13.png)
+![setting13](https://github.com/Chordingg/Spring/assets/157094467/28b5efd6-fe11-4369-b8d5-31c25586ca3e)
 
-![log4jdbc.log4j2.properties 작성](./capture/setting13_1.png)
+![setting13_1](https://github.com/Chordingg/Spring/assets/157094467/5dfbd6ea-13de-4318-b234-9576fc7a851d)
 
 ```properties
 log4jdbc.spylogdelegator.name=net.sf.log4jdbc.log.slf4j.Slf4jSpyLogDelegator
@@ -1102,9 +1102,9 @@ log4jdbc.spylogdelegator.name=net.sf.log4jdbc.log.slf4j.Slf4jSpyLogDelegator
 
 - D:\kim\springStudy\study2\src\main\webapp\WEB-INF 디렉토리에서 마우스 오른쪽 버튼을 누르고 나오는 메뉴에서 [New]-[File] 를 선택하고, 입력 란에 spring-security.xml을 입력하고, Enter를 칩니다.
 
-![spring-security.xml 파일 작성](./capture/setting14.png)
+![setting14](https://github.com/Chordingg/Spring/assets/157094467/b221345c-5427-460b-a1e6-cb256224f36b)
 
-![spring-security.xml 파일 작성](./capture/setting14_1.png)
+![setting14_1](https://github.com/Chordingg/Spring/assets/157094467/6ba85699-20d6-429a-8563-f07341f2932c)
 
 
 ## 02-8. 데이터베이스 설정 
@@ -1134,9 +1134,9 @@ SELECT * from test;
 
 - D:\kim\springStudy\study2\src\main\java\kr\ed\haebeop\domain 패키지 디렉토리에서 마우스 오른쪽 버튼을 누르고 나오는 메뉴에서 [New]-[Java Class] 를 선택하고, 입력 란에 Test를 입력하고, Enter를 칩니다.
 
-![Test 클래스 작성](./capture/setting15.png)
+![setting15](https://github.com/Chordingg/Spring/assets/157094467/b93bbd7e-48fc-4713-a881-2e05d86f4919)
 
-![Test 클래스 작성](./capture/setting15_1.png)
+![setting15_1](https://github.com/Chordingg/Spring/assets/157094467/4b2fa887-ab90-4e42-a429-47290df49b55)
 
 ```java
 package kr.ed.heabeop.domain;
