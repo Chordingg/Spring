@@ -11,6 +11,4 @@ public class Restaurant {
 	
 	@Autowired
 	private Chef chef;
-	
-
 }

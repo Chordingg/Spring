@@ -7,16 +7,18 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>exUpload..........</h1>
+<h1>exUpload............</h1>
 
 <form action="/sample/exUploadPost" method="post" enctype="multipart/form-data">
-	<div><input type = "file" name="files"></div>
-	<div><input type = "file" name="files"></div>
-	<div><input type = "file" name="files"></div>
-	<div><input type = "file" name="files"></div>
-	<div><input type = "file" name="files"></div>
-
+	
+	<div><input type="file" name="files"></div>
+	<div><input type="file" name="files"></div>
+	<div><input type="file" name="files"></div>
+	<div><input type="file" name="files"></div>
+	<div><input type="file" name="files"></div>
+	
 	<div><input type="submit" value="전송"></div>
 </form>
+
 </body>
 </html>

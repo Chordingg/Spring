@@ -1,11 +1,14 @@
 package org.zerock.sample;
 
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Service;
 
 import lombok.Data;
 
-@Component
-@Data	// setter, getter, toString
+
+@Data
+@Service
 public class Chef {
 
 }
