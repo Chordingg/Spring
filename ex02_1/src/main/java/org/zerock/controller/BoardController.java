@@ -37,13 +37,13 @@ public class BoardController {
 		
 		model.addAttribute("list", boardService.getList(cri));  //views/board/list.jsp
 		
-		model.addAttribute("pageMaker", new PageDTO(cri, 30));
+//		model.addAttribute("pageMaker", new PageDTO(cri, 123));
 		
-//		int total = boardService.getTotal(cri);
-//		
-//		log.info("total : " + total);
-//		
-//		model.addAttribute("pageMaker", new PageDTO(cri, total));
+		int total = boardService.getTotal(cri);
+		
+		log.info("total : " + total);
+		
+		model.addAttribute("pageMaker", new PageDTO(cri, total));
 	}
 	
 	
@@ -80,6 +80,8 @@ public class BoardController {
 		}
 		rttr.addAttribute("pageNum", cri.getPageNum());
 		rttr.addAttribute("amount", cri.getAmount());
+		rttr.addAttribute("type", cri.getType());
+		rttr.addAttribute("keyword", cri.getKeyword());
 		
 		return "redirect:/board/list";
 		
@@ -94,6 +96,8 @@ public class BoardController {
 		}
 		rttr.addAttribute("pageNum", cri.getPageNum());
 		rttr.addAttribute("amount", cri.getAmount());
+		rttr.addAttribute("type", cri.getType());
+		rttr.addAttribute("keyword", cri.getKeyword());
 		
 		return "redirect:/board/list";
 	}

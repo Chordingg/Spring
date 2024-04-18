@@ -2,7 +2,9 @@ package org.zerock.mapper;
 
 import static org.junit.Assert.*;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -88,4 +90,24 @@ public class BoardMapperTests {
 		
 		list.forEach(vo -> log.info(vo));
 	}
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }

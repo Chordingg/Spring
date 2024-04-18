@@ -5,7 +5,7 @@
 
 <div class="row">
     <div class="col-lg-12">
-        <h1 class="page-header">상세페이지</h1>
+        <h1 class="page-header">상세 페이지</h1>
     </div>
     <!-- /.col-lg-12 -->
 </div>
@@ -40,10 +40,18 @@
             		</div>
             		
             		<!-- modify 버튼을 눌렀을 때, bno 값을 받도록 한다. -->
-            		<button data-oper='modify' class="btn btn-primary" onclick="location.href='/board/modify?bno=${board.bno}'">Modify</button>&nbsp;&nbsp;
+            		<button data-oper='modify' class="btn btn-primary" >Modify</button>&nbsp;&nbsp;
             		
             		<!-- list 화면으로 복귀 -->
-            		<button data-oper='list' class="btn btn-warning" onclick="location.href='/board/list'">List</button>
+            		<button data-oper='list' class="btn btn-warning" >List</button>&nbsp;&nbsp;
+            		
+            		<form id="operForm" action="/board/modify" method="get">
+            			<input type="hidden" id="bno" name="bno" value="${board.bno}">
+            			<input type="hidden" name="pageNum" value="${cri.pageNum}">
+            			<input type="hidden" name="amount" value="${cri.amount}">
+            			<input type="hidden" name="type" value="${cri.type}">
+            			<input type="hidden" name="keyword" value="${cri.keyword}">
+            		</form>
             		
             </div>
             <!-- /.panel-body -->
@@ -54,4 +62,27 @@
 </div>
 <!-- /.row -->
 
+<script>
+	$(document).ready(function(){
+	
+		let operForm = $("#operForm");
+		
+		$("button[data-oper='modify']").on("click", function(e){
+			operForm.submit();
+		})
+		
+		$("button[data-oper='list']").on("click", function(e){
+			operForm.find("#bno").remove();
+			operForm.attr("action","/board/list")
+			operForm.submit();
+		})
+		
+	})
+	
+
+
+
+
+
+</script>
 <%@ include file="../includes/footer.jsp" %>            
