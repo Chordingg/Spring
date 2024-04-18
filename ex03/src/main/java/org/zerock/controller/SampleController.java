@@ -13,6 +13,9 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -89,5 +92,21 @@ public class SampleController {
 			result = ResponseEntity.status(HttpStatus.CREATED).body(vo);
 		}
 		return result;
+	}
+	
+	// localhost:8181/sample/product/조운/20   PathVariable 방식
+	@GetMapping(value = "/product/{name}/{age}", produces = MediaType.APPLICATION_JSON_VALUE)
+	public String[] getPath(
+			@PathVariable("name") String name,	// 조운
+			@PathVariable("age") Integer age	// 20
+			) {
+		return new String[] {"name : " + name, "age : " + age};
+	}
+	
+	// json 값을 요청 받아서 json 으로 반환
+	@PostMapping(value = "/ticket", produces = MediaType.APPLICATION_JSON_VALUE)
+	public SampleVO convert(@RequestBody SampleVO vo) {
+		log.info("=====================> " + vo);
+		return vo;
 	}
 }
