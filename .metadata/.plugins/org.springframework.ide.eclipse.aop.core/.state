@@ -4,9 +4,9 @@
 <aop-project name="ex03_1"/>
 <aop-project name="SampleTest"/>
 <aop-project name="SampleTest2"/>
-<aop-project name="MybatisTest"/>
 <aop-project name="ex02"/>
 <aop-project name="ex00"/>
 <aop-project name="ex01"/>
 <aop-project name="ex03"/>
+<aop-project name="MybatisTest"/>
 </aop-reference-model>

@@ -1,6 +1,7 @@
 package org.zerock.controller;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -29,21 +30,33 @@ public class BoardController {
 	
 	
 	
+	/*
+	 * @GetMapping("/list") // Criteria의 cri는 Domain에 있는 Criteria 에서 값을 받아서 가져온다. //
+	 * Model은 addAttribute를 통해서 model 에 값을 넣고 jsp 에서 출력 public void list(Criteria
+	 * cri, Model model){ log.info("list........" + cri);
+	 * 
+	 * model.addAttribute("list", boardService.getList(cri)); //views/board/list.jsp
+	 * 
+	 * // model.addAttribute("pageMaker", new PageDTO(cri, 123));
+	 * 
+	 * int total = boardService.getTotal(cri);
+	 * 
+	 * log.info("total : " + total);
+	 * 
+	 * model.addAttribute("pageMaker", new PageDTO(cri, total)); }
+	 */
+	
 	@GetMapping("/list")
 	// Criteria의 cri는 Domain에 있는 Criteria 에서 값을 받아서 가져온다.
 	// Model은 addAttribute를 통해서 model 에 값을 넣고 jsp 에서 출력
-	public void list(Criteria cri,  Model model){   
+	public Map<String, Object> list(Criteria cri){   
 		log.info("list........" + cri);
-		
-		model.addAttribute("list", boardService.getList(cri));  //views/board/list.jsp
-		
-//		model.addAttribute("pageMaker", new PageDTO(cri, 123));
 		
 		int total = boardService.getTotal(cri);
 		
 		log.info("total : " + total);
 		
-		model.addAttribute("pageMaker", new PageDTO(cri, total));
+		return Map.of("list", boardService.getList(cri), "pageMaker", new PageDTO(cri, total));
 	}
 	
 	

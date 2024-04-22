@@ -21,6 +21,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.zerock.domain.SampleVO;
 
+import com.google.gson.Gson;
+
 import lombok.extern.log4j.Log4j;
 
 @Log4j
@@ -78,31 +80,70 @@ public class SampleController {
 
 		return map;
 	}
-	
-	@GetMapping(value = "/check", params = {"height", "weight"}, produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<SampleVO> check(Double height, Double weight){
-		SampleVO vo = new SampleVO(0, ""+ height, ""+ weight);
-		
+
+	@GetMapping(value = "/getMap2", produces = MediaType.APPLICATION_JSON_VALUE)
+	public Map<String, Object> getMap2() {
+
+//		Map<String,String> map = Map.of("name : ", "park", "age : ", "20");		
+//		return map;
+
+		return Map.of("name : ", "kim", "age : ", "20");
+
+	}
+
+	@GetMapping(value = "/check", params = { "height", "weight" }, produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<SampleVO> check(Double height, Double weight) {
+		SampleVO vo = new SampleVO(0, "" + height, "" + weight);
+
 		ResponseEntity<SampleVO> result = null;
-		
-		if(height <150) {
+
+		if (height < 150) {
 			// height <150 일 때, BAD_GATEWAY 상태창에서 502 빨간 코드가 뜬다.
 			result = ResponseEntity.status(HttpStatus.BAD_GATEWAY).body(vo);
-		}else {
+		} else {
 			result = ResponseEntity.status(HttpStatus.CREATED).body(vo);
 		}
 		return result;
 	}
+
 	
-	// localhost:8181/sample/product/조운/20   PathVariable 방식
-	@GetMapping(value = "/product/{name}/{age}", produces = MediaType.APPLICATION_JSON_VALUE)
-	public String[] getPath(
-			@PathVariable("name") String name,	// 조운
-			@PathVariable("age") Integer age	// 20
+	  // localhost:8181/sample/product/조운/20 PathVariable 방식
+	  
+	  @GetMapping(value = "/product/{name}/{age}", produces = MediaType.APPLICATION_JSON_VALUE) 
+	  public String[] getPath( 
+	  @PathVariable("name") String name, // 조운
+	  @PathVariable("age") Integer age // 20 
+	  ) { 
+	  return new String[] {"name : " + name, "age : " + age}; }
+	 
+
+	// localhost:8181/sample/product/조운/20 PathVariable 방식
+	@GetMapping(value = "/product2/{name}/{age}", produces = MediaType.APPLICATION_JSON_VALUE)
+	public String getPath2(
+			@PathVariable("name") String name, // 조운
+			@PathVariable("age") Integer age // 20
 			) {
-		return new String[] {"name : " + name, "age : " + age};
+		
+		Map<String, Object> map = Map.of("name : ", name, "age : ", age);
+		
+		Gson gson = new Gson();
+		
+		String jsonStr = gson.toJson(map);
+		
+		log.info("=====================> " + jsonStr);
+		
+		return jsonStr;
 	}
 	
+	@GetMapping(value = "/product3/{name}/{age}", produces = MediaType.APPLICATION_JSON_VALUE)
+	public Map<String, Object> getPath3(
+			@PathVariable("name") String name, // 조운
+			@PathVariable("age") Integer age // 20
+			) {
+		
+		return Map.of("name : ", name, "age : ", age);
+	}
+
 	// json 값을 요청 받아서 json 으로 반환
 	@PostMapping(value = "/ticket", produces = MediaType.APPLICATION_JSON_VALUE)
 	public SampleVO convert(@RequestBody SampleVO vo) {

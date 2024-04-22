@@ -62,6 +62,28 @@
 </div>
 <!-- /.row -->
 
+<script type="text/javascript" src="/resources/js/reply.js"></script>
+
+<script>
+	$(document).ready(function(){
+		
+		console.log("JS TEST.................")
+		
+		var bnoValue = "${board.bno}";
+		
+		console.log("bnoValue................." + bnoValue)
+		
+		//댓글 등록
+		replyService.add(
+			{reply:"JS Test", replyer:"tester", bno:bnoValue},
+			function(result){
+				alert("RESULT : " + result)
+			}
+		);
+		
+	});
+</script>
+
 <script>
 	$(document).ready(function(){
 	
@@ -78,11 +100,7 @@
 		})
 		
 	})
+
 	
-
-
-
-
-
 </script>
 <%@ include file="../includes/footer.jsp" %>            
