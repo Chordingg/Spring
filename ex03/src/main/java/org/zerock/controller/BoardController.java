@@ -28,8 +28,6 @@ public class BoardController {
 
 	private final BoardService boardService;
 	
-	
-	
 	/*
 	 * @GetMapping("/list") // Criteria의 cri는 Domain에 있는 Criteria 에서 값을 받아서 가져온다. //
 	 * Model은 addAttribute를 통해서 model 에 값을 넣고 jsp 에서 출력 public void list(Criteria

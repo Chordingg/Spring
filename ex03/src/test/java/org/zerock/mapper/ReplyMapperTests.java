@@ -24,7 +24,7 @@ public class ReplyMapperTests {
 	private ReplyMapper replyMapper;
 	
 	// 댓글 추가하기 위해서 현존하는 게시글 번호들
-	private Long[] bnoArr = {2490433L, 2490421L, 2490381L, 2490373L, 2490369L};
+	private Long[] bnoArr = {7811L, 7809L, 7808L, 7805L, 7804L};
 	
 	@Test
 	public void testMapper() {

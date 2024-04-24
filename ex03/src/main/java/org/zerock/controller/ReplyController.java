@@ -29,16 +29,15 @@ public class ReplyController {
    private final ReplyService replyService;
    
    @PostMapping(value = "/new", consumes = "application/json", produces = {MediaType.TEXT_PLAIN_VALUE})
-   public ResponseEntity<String> create(@RequestBody ReplyVO reply){
-      
-      log.info("create.........." + reply);
-      
-      int insertCount = replyService.register(reply);
-      
-      return insertCount == 1 ? new ResponseEntity<String>("success", HttpStatus.OK) : 
-                           new ResponseEntity<String>(HttpStatus.INTERNAL_SERVER_ERROR);
-      
-   }
+	public ResponseEntity<String> create(@RequestBody ReplyVO reply){
+		
+		log.info("create......." + reply);
+		
+		int insertCount = replyService.register(reply);
+		
+		return insertCount == 1 ? new ResponseEntity<String>("success", HttpStatus.OK) : 
+								  new ResponseEntity<String>(HttpStatus.INTERNAL_SERVER_ERROR);
+	}
    
    // localhost:8181/reply/12
    @GetMapping(value = "/{rno}", produces = {MediaType.APPLICATION_JSON_VALUE})

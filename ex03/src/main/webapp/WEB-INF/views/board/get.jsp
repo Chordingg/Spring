@@ -44,8 +44,8 @@
 					<input type="hidden" id="bno" name="bno" value='${board.bno}'>
 					<input type="hidden" name="pageNum" value='${cri.pageNum}'>
 					<input type="hidden" name="amount" value='${cri.amount}'> 
-					<input type="hidden" name="type" value=${cri.type}> 
-					<input type="hidden" name="keyword" value=${cri.keyword}>
+					<input type="hidden" name="type" value='${cri.type}'> 
+					<input type="hidden" name="keyword" value='${cri.keyword}'>
 
 				</form>
 
@@ -59,12 +59,13 @@
 <!-- /.row -->
 
 
-<!-- /.row -->
+<!-- /.row 댓글 처리-->
 <div class="row">
 	<div class="col-lg-12">
 		<div class="panel panel-default">
 			<div class="panel-heading">
 				<i class="fa fa-comments fa-fw"></i> Reply
+				<button id="addReplyBtn" class="btn btn-primary btn-xs pull-right">New Reply</button>
 			</div>
 			<!-- /.panel-heading -->
 			<div class="panel-body">
@@ -88,60 +89,211 @@
 </div>
 <!-- /.row -->
 
+<!-- 댓글 Modal -->
+<!-- The Modal -->
+<div class="modal" id="myModal">
+	<div class="modal-dialog">
+		<div class="modal-content">
+
+			<!-- Modal Header -->
+			<div class="modal-header">
+				<h4 class="modal-title">REPLY MODAL</h4>
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+			</div>
+
+			<!-- Modal body -->
+			<div class="modal-body">
+			
+				<div class="form-group">
+					<label>Reply</label> 
+					<input class="form-control" name="reply" value="New Reply........">
+				</div>
+
+				<div class="form-group">
+					<label>Replyer</label> 
+					<input class="form-control" name="replyer" value="New Replyer........">
+				</div>
+				
+				<div class="form-group">
+					<label>Reply Date</label> 
+					<input class="form-control" name="replyDate" value="">
+				</div>
+				
+			</div>
+
+			<!-- Modal footer -->
+			<div class="modal-footer">
+				<button id="modalRegisterBtn" type="button" class="btn btn-primary">Register</button>
+				<button id="modalModBtn" type="button" class="btn btn-warning">Modify</button>
+				<button id="modalRemoveBtn" type="button" class="btn btn-danger">Remove</button>
+				<button id="modalCloseBtn" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			</div>
+
+		</div>
+	</div>
+</div>
+</div>
+<!-- End The Modal -->
 
 
 <script type="text/javascript" src="/resources/js/reply.js"></script>
 
+<style>
+	.chat > li:hover{
+		cursor:pointer;
+	}
+</style>
+
 <script>
-	$(document)
-			.ready(
-					function() {
+$(document).ready(function() {
+	console.log("JS TEST................")
 
-						console.log("JS TEST................")
+	var bnoValue = "${board.bno}";
+	var replyUL = $(".chat")
 
-						var bnoValue = "${board.bno}";
-						var replyUL = $(".chat")
+	console.log("bnoValue................" + bnoValue);
 
-						console.log("bnoValue................" + bnoValue)
+	showList(1);
 
-						showList(1);
+	function showList(page) {
+		replyService.getList({
+			bno : bnoValue,
+			page : page
+			},
 
-						function showList(page) {
-							replyService.getList(
-											{
-												bno : bnoValue,
-												page : page
-											},
-											
-											function(list) {
-												console.log("getList...............")
-												console.log(list)
+	function(list) {
+		console.log("getList...............");
+		console.log(list);
 
-												var str = ""
+		var str = ""
 
-												if (list == null || list.length == 0) {
-													replyUL.html("")
-													return;
-												}
+		if (list == null || list.length == 0) {
+			replyUL.html("")
+			return;
+		};
 
-												for (var i = 0; i < list.length; i++) {
-													str += "<li class='left clearfix' data-rno='"+ list[i].rno  +"'>"
-													str += "<div>"
-													str += "<div class='header'>"
-													str += "<strong class='primary-font'>"+ list[i].replyer + "</strong>"
-													str += "<small class='pull-right text-muted'> " + list[i].replyDate + " </small>"
-													str += "</div>"
-													str += "</div>"
-													str += "<p>" + list[i].reply + "</p></li>"
-												}
-												replyUL.html(str)
+		// Ajax에서 데이터를 가져와서 HTML을 만들어 주는 부분
+		for(var i=0; i<list.length; i++){
+			str += "<li class='left clearfix' data-rno='"+ list[i].rno  +"'>"
+			str += "<div>"
+			str += "<div class='header'>"
+			str += "<strong class='primary-font'>"+ list[i].replyer+"</strong>"		
+			str += "<small class='pull-right text-muted'> "+ replyService.displayTime(list[i].replyDate) +" </small>"		
+			str += "</div>"	
+			str += "</div>"
+			str += "<p>"+list[i].reply +"</p></li>"
+			}
+		replyUL.html(str)
+		}) //End showList
+	}
+	
+	
+	
+		// 댓글 CRUD
+		var modal = $(".modal"); 
+		var modalInputReply = modal.find("input[name='reply']");
+		var modalInputReplyer = modal.find("input[name='replyer']");
+		var modalInputReplyDate = modal.find("input[name='replyDate']");
+		
+		var modalModBtn = $("#modalModBtn");
+		var modalRemoveBtn = $("#modalRemoveBtn");
+		var modalRegisterBtn = $("#modalRegisterBtn");
+				
+		$("#addReplyBtn").on("click", function(e){
 
-											}) //End showList
-
-						}
-
+			modal.find("input").val("");
+			modalInputReplyDate.closest("div").hide();
+			modal.find("button[id != 'modalCloseBtn']").hide();
+			
+			modalRegisterBtn.show();
+			
+			$(".modal").modal("show");
+			
+			
+		});
+		
+		// 댓글 등록
+		modalRegisterBtn.on("click", function(e){
+			
+			var reply = {
+				reply : modalInputReply.val(),	
+				replyer : modalInputReplyer.val(),
+				bno : bnoValue
+			};
+		
+			replyService.add(reply, function(result){
+				alert(result);
+				
+				modal.find("input").val("");
+				modal.modal("hide");
+			});
+		});	// End 댓글 등록
+		
+		
+		// 이벤트 위임을 통한 댓글 클릭 이벤트
+		$(".chat").on("click","li", function(e){
+			
+			var rno = $(this).data("rno")
+			console.log(rno)
+			
+			replyService.get(rno, function(reply){
+				
+				modalInputReply.val(reply.reply)
+				modalInputReplyer.val(reply.replyer)
+				modalInputReplyDate.val(replyService.displayTime(reply.replyDate)).attr("readonly", "readonly")
+				
+				modal.data("rno", reply.rno);
+				
+				modal.find("button[id != 'modalCloseBtn']").hide();
+				modalModBtn.show();
+				modalRemoveBtn.show();
+				
+				
+				$(".modal").modal("show")
+				
+			})
+		
+		})	// End 이벤트 위임
+		
+		
+		// 댓글 수정
+		modalModBtn.on("click", function(e){
+			
+			var reply = {
+				rno : modal.data("rno"),
+				reply : modalInputReply.val()
+			};			
+			
+			replyService.update(reply, function(result){
+		
+				alert(result);
+				modal.modal("hide");
+				showList(1);
+			
+			})
+		})
+		
+		// 댓글 삭제
+		modalRemoveBtn.on("click", function(e){
+			e.stopPropagation();
+			e.preventDefault();
+			
+			let	rno = modal.data("rno");
+			
+			replyService.remove(rno, function(result){
+				
+				alert(result);
+				modal.modal("hide");
+				showList(1);
+			
+			})
+		}) // End 댓글 삭제
+		
+});
+						
+						
 						/* 댓글 등록하기 */
-						/* replyService.add(		
+						/*  replyService.add(		
 							
 							{reply:"JS Test2", replyer: "tester2", bno:bnoValue},
 							
@@ -164,7 +316,7 @@
 							}
 							
 						) */
-	
+
 						/* 댓글 삭제하기 */
 						/* var rno = 208
 						replyService.remove(rno, function(msg){
@@ -173,16 +325,16 @@
 						);
 						 */
 
-						 /* 댓글 수정하기 */
-					  	 /* var data = {
-									rno:207,
-									reply: "Modified Reply..."
+						/* 댓글 수정하기 */
+						/* var data = {
+								rno:207,
+								reply: "Modified Reply..."
 						}
 						replyService.update(
-							data, 
-							function(result){
-								alert(result);
-							}			
+						data, 
+						function(result){
+							alert(result);
+						}			
 						) */
 
 						/* 댓글 가져오기 */
@@ -191,7 +343,7 @@
 												}
 						); */
 
-					});
+
 </script>
 
 
