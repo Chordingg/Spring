@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.zerock.domain.Criteria;
+import org.zerock.domain.ReplyPageDTO;
 import org.zerock.domain.ReplyVO;
 import org.zerock.service.ReplyService;
 
@@ -54,7 +55,7 @@ public class ReplyController {
       
       log.info("delete..........." + rno);
       
-      
+       
       return replyService.remove(rno) == 1
     		  ? new ResponseEntity<String>("success", HttpStatus.OK)
               : new ResponseEntity<String>(HttpStatus.INTERNAL_SERVER_ERROR);
@@ -76,8 +77,8 @@ public class ReplyController {
    }
 
    //localhost:8181/reply/pages/100/1	--> 
-   @GetMapping(value = "/pages/{bno}/{page}" , produces =  {MediaType.APPLICATION_JSON_VALUE} )
-   public ResponseEntity<List<ReplyVO>> getList(
+   @GetMapping(value = "/pages/{bno}/{page}" , produces = {MediaType.APPLICATION_JSON_VALUE})
+   public ResponseEntity<ReplyPageDTO> getList(
          @PathVariable("bno") Long bno,
          @PathVariable("page") int page
                ){
@@ -85,9 +86,10 @@ public class ReplyController {
             
             Criteria cri = new Criteria(page, 10);
             
-            List<ReplyVO> list = replyService.getList(cri, bno);
+            // result 안에는 전체 목록과 갯수가 들어있음
+            ReplyPageDTO result = replyService.getList(cri, bno);
             
-            return new ResponseEntity<List<ReplyVO>>(list, HttpStatus.OK);
+            return new ResponseEntity<ReplyPageDTO>(result, HttpStatus.OK);
             
          }
          

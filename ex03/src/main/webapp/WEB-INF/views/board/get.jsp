@@ -161,16 +161,16 @@ $(document).ready(function() {
 			page : page
 			},
 
-	function(list) {
-		console.log("getList...............");
-		console.log(list);
+		function(list) {
+			console.log("getList...............");
+			console.log(list);
 
-		var str = ""
+			var str = ""
 
-		if (list == null || list.length == 0) {
-			replyUL.html("")
-			return;
-		};
+			if (list == null || list.length == 0) {
+				replyUL.html("")
+				return;
+			};
 
 		// Ajax에서 데이터를 가져와서 HTML을 만들어 주는 부분
 		for(var i=0; i<list.length; i++){
@@ -215,6 +215,8 @@ $(document).ready(function() {
 		// 댓글 등록
 		modalRegisterBtn.on("click", function(e){
 			
+			console.log("register...............");
+			
 			var reply = {
 				reply : modalInputReply.val(),	
 				replyer : modalInputReplyer.val(),
@@ -258,6 +260,8 @@ $(document).ready(function() {
 		
 		// 댓글 수정
 		modalModBtn.on("click", function(e){
+			
+			console.log("update...............")
 			
 			var reply = {
 				rno : modal.data("rno"),

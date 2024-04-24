@@ -12,6 +12,7 @@ var replyService = (function(){
             url:"/reply/new",
             data:JSON.stringify(reply),
             contentType:"application/json; charset=utf-8",
+            
             success:function(result,status,xhr){
                 if(callback){
                     callback(result)
@@ -30,7 +31,7 @@ var replyService = (function(){
 
     function getList(param, callback, error){
     
-    	console.log("getList bno & page........");
+    	console.log("bno & page......... : " ,param.bno , "," , param.page);
     
         var bno = param.bno;
 
@@ -133,10 +134,6 @@ var replyService = (function(){
     	var gap = today.getTime() - timeValue;
     	
     	var dateObj = new Date(timeValue);
-    	
- 	    console.log("timeValue : " + timeValue);
-    	console.log("dataObj : ");
-    	console.log(dateObj);
     	
     	var str = "";
     		
