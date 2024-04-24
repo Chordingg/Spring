@@ -41,9 +41,9 @@ var replyService = (function(){
             type:"get",
             url:"/reply/pages/" + bno + "/" + page,
 
-            success:function(list, status, xhr){
+            success:function(data, status, xhr){
                 if(callback){
-                    callback(list)
+                    callback(data.replyCnt, data.list)
                 }
             },
 
