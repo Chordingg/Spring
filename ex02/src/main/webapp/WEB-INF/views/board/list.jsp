@@ -34,9 +34,7 @@
                                 	<c:forEach var="board" items="${list}">
 	                                    <tr class="odd gradeX">
 	                                        <td>${board.bno}</td>
-	                                        
-	                                        <td><a class="move" href='${board.bno}'/> ${board.title}</td>
-	                                        
+	                                        <td><a class="move" href='${board.bno}'>${board.title}</a></td>
 	                                        <td>${board.writer}</td>
 	                                        <td><fmt:formatDate value="${board.regdate}" pattern="yyyy-MM-dd"/></td>
 	                                        <td><fmt:formatDate value="${board.updateDate}" pattern="yyyy-MM-dd"/></td>
@@ -138,6 +136,7 @@
 
 		/* 페이지 번호 클릭하면 페이지 이동 */
 		var actionForm = $("#actionForm");
+		
 		$(".page-item a").on("click", function(e){
 			e.preventDefault();
 			console.log("click");
@@ -149,8 +148,7 @@
 		/* 상세페이지(get.jsp)이동 시 pageNum, amount값이 가지고 이동 */
 		$(".move").on("click",function(e){
 			e.preventDefault();
-			actionForm.append("<input type='hidden' name='bno' value= '"+ 
-								$(this).attr("href")+ "'>");
+			actionForm.append("<input type='hidden' name='bno' value= '"+ $(this).attr("href")+ "'>");
 			actionForm.attr("action","/board/get");
 			actionForm.submit();
 		});

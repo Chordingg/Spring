@@ -37,6 +37,7 @@ public class BoardController {
 		//model.addAttribute("pageMaker", new PageDTO(cri, 255));
 		
 		int total = boardService.getTotal(cri);
+		
 		log.info("Total : " + total);
 		
 		model.addAttribute("pageMaker", new PageDTO(cri, total));
