@@ -18,7 +18,7 @@
 	<logger name="org.zerock.service">
 		<level value="info" />
 	</logger>
-	
+
 	<logger name="org.zerock.security">
 		<level value="info" />
 	</logger>
@@ -39,11 +39,10 @@
 	<logger name="org.springframework.web">
 		<level value="info" />
 	</logger>
-	
+
 	<logger name="org.springframework.security">
 		<level value="trace" />
 	</logger>
-	
 
 	<!-- Root Logger -->
 	<root>

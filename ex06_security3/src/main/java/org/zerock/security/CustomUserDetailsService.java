@@ -17,18 +17,17 @@ public class CustomUserDetailsService implements UserDetailsService{
 	@Autowired
 	private MemberMapper mapper;
 	
-	@Override
+	@Override	
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		
+
 		log.info("------------------------------------------");
 		log.info(username);
 		log.info("------------------------------------------");
 		
 		MemberVO vo = mapper.read(username);
 		
-		log.info(vo); 
+		log.info(vo);
 		
-	
 		return vo;
 	}
 

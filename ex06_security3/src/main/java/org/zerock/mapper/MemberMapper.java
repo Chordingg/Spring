@@ -7,8 +7,8 @@ public interface MemberMapper {
 	
 	public void insert(MemberVO memberVO);
 	
-	public void insertAuth(AuthVO authVO);
+	public void insertAuth(AuthVO auth);
 	
-	public MemberVO read(String userId);
-
+	public MemberVO read(String userid);
+	
 }

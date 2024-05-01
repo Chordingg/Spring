@@ -3,6 +3,7 @@ package org.zerock.controller;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -27,6 +28,8 @@ import oracle.jdbc.proxy.annotation.Post;
 public class BoardController {
 
 	private final BoardService boardService;
+	
+	
 	
 	@GetMapping("/list")
 	public void list(Criteria cri,  Model model){   
@@ -62,11 +65,13 @@ public class BoardController {
 //	}
 	
 	@GetMapping("/register")  //  WEB_INF/views/board/register.jsp
+	@PreAuthorize("isAuthenticated()")
 	public void register() {
 		
 	}
 	
 	@PostMapping("/register")
+	@PreAuthorize("isAuthenticated()")
 	public String register(BoardVO board, RedirectAttributes rttr) {
 		log.info("register......." + board);
 		boardService.register(board);
@@ -84,6 +89,7 @@ public class BoardController {
 		
 	}
 	
+	@PreAuthorize("principal.username == #board.writer")
 	@PostMapping("/modify")
 	public String modify(BoardVO board, @ModelAttribute("cri") Criteria cri, RedirectAttributes rttr) {
 		
@@ -102,8 +108,10 @@ public class BoardController {
 		
 	}
 	
+	@PreAuthorize("principal.username == #writer")
 	@PostMapping("/remove")
-	public String remove(@RequestParam("bno")Long bno, @ModelAttribute("cri") Criteria cri, RedirectAttributes rttr) {
+	public String remove(@RequestParam("bno")Long bno, @ModelAttribute("cri") Criteria cri, 
+				RedirectAttributes rttr,  @RequestParam("writer") String writer) {
 		log.info("remove........" + bno);
 		
 		if(boardService.remove(bno)) {

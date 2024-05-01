@@ -37,7 +37,8 @@
 	           		
 	           		<div class="form-group">
 	            		<label>Text Area</label>
-	            		<textarea rows="3" class="form-control" name="content" >${board.content}</textarea>
+	            		<textarea rows="3" class="form-control" name="content" >
+	            		${board.content}</textarea>
 	           		</div>
 	           		
 	           		<div class="form-group">
@@ -45,8 +46,15 @@
 	            		<input class="form-control" name="writer" value="${board.writer}" >
 	           		</div>
 	           		
-	           		<button type="submit" data-oper='modify' class="btn btn-primary">Modify</button>
-	           		<button type="submit" data-oper='remove' class="btn btn-danger">Remove</button>
+	           		<sec:authentication property="principal" var="pinfo"/>
+	           		
+	           		<sec:authorize access="isAuthenticated()">
+		           		<c:if test="${pinfo.username eq board.writer }">
+			           		<button type="submit" data-oper='modify' class="btn btn-primary">Modify</button>
+			           		<button type="submit" data-oper='remove' class="btn btn-danger">Remove</button>
+		           		</c:if>
+	           		</sec:authorize>
+	           		
 	           		<button type="submit" data-oper='list' class="btn btn-info">List</button>
             	</form>	
             </div>

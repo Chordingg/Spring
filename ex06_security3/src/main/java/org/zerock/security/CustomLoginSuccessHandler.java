@@ -20,28 +20,27 @@ public class CustomLoginSuccessHandler implements AuthenticationSuccessHandler{
 	public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response,
 			Authentication auth) throws IOException, ServletException {
 		
-		log.warn("Login Success");
+		log.warn("Login Secucess");
 		
 		List<String> roleNames = new ArrayList<String>();
+		log.info("---------------------------------------");
+		log.info(auth.getName());
+		log.info(auth.getPrincipal());
+		log.info(auth.getAuthorities());
 		
-		log.info("-----------------------------");
-		log.info(auth.getName()); // admin
-		log.info(auth.getPrincipal()); //  org.springframework.security.core.userdetails.User@.....
-		log.info(auth.getAuthorities()); // [ROLE_ADMIN, ROLE_MEMBER]
-		
-		
-		auth.getAuthorities().forEach(authority -> {
+		auth.getAuthorities().forEach( authority-> {
 			roleNames.add(authority.getAuthority());
 		});
 		
 		if(roleNames.contains("ROLE_ADMIN")) {
 			response.sendRedirect("/sample/admin");
-			return;
-		}else if(roleNames.contains("ROLE_MEMBER")) {
+			return ;
+		}else if(roleNames.contains("ROLE_MEMBER")){
 			response.sendRedirect("/sample/member");
-			return;
+			return ;
 		}
 		
 		response.sendRedirect("/");
 	}
+
 }
